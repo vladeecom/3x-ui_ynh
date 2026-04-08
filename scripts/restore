@@ -1,6 +1,6 @@
 #!/bin/bash
-source _common.sh
 source /usr/share/yunohost/helpers
+source _common.sh
 
 ynh_restore_file --origin_path="$install_dir" --dest_path="$install_dir"
 ynh_restore_file --origin_path="$data_dir" --dest_path="$data_dir"
