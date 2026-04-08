@@ -7,7 +7,7 @@ description.fr = "Panneau web pour Xray"
 
 version = "2.8.11~ynh1"
 
-maintainers = ["MHSanaei"]
+maintainers = ["vladeecom"]
 
 [upstream]
 license = "GPL-3.0"
