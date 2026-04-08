@@ -1,6 +1,6 @@
 #!/bin/bash
 source /usr/share/yunohost/helpers
-source _common.sh
+source $YNH_APP_BASEDIR/scripts/_common.sh
 get_paths_and_settings
 
 ynh_restore_file --origin_path="$install_dir" --dest_path="$install_dir"
@@ -8,9 +8,14 @@ ynh_restore_file --origin_path="$data_dir" --dest_path="$data_dir"
 
 chown -R "$app:$app" "$install_dir" "$data_dir"
 
+mkdir -p /var/log/x-ui
+chown -R "$app:$app" /var/log/x-ui
+
+mkdir -p /etc/x-ui
+chown -R "$app:$app" /etc/x-ui
+
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=daemon-reload
 ynh_systemctl --service=$app --action=enable
 ynh_systemctl --service=$app --action=start
