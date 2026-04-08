@@ -1,6 +1,9 @@
 #!/bin/bash
-source _common.sh
 source /usr/share/yunohost/helpers
+source $YNH_APP_BASEDIR/scripts/_common.sh
 
-ynh_backup --src_path="$install_dir"
-ynh_backup --src_path="$data_dir"
+app=$YNH_APP_INSTANCE_NAME
+get_paths_and_settings
+
+ynh_backup "$install_dir"
+ynh_backup "$data_dir"

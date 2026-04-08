@@ -1,9 +1,10 @@
 #!/bin/bash
-source _common.sh
 source /usr/share/yunohost/helpers
+source _common.sh
+get_paths_and_settings
 
-ynh_remove_nginx_config
-ynh_remove_systemd_config
+ynh_config_remove_nginx
+ynh_config_remove_systemd
 
 if [ -n "$install_dir" ] && [ -d "$install_dir" ]; then
     rm -rf "$install_dir"
@@ -12,3 +13,6 @@ fi
 if [ -n "$data_dir" ] && [ -d "$data_dir" ]; then
     rm -rf "$data_dir"
 fi
+
+rm -rf /var/log/x-ui
+rm -rf /etc/x-ui

@@ -1,17 +1,14 @@
 #!/bin/bash
-source _common.sh
 source /usr/share/yunohost/helpers
+source _common.sh
+get_paths_and_settings
 
 ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
-path_url="/${path_url#/}"
-port=$(ynh_find_port --port=20530)
+path_url="/"
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
-ynh_app_setting_set --app=$app --key=port --value=$port
 
 ynh_setup_source --dest_dir="$install_dir"
 
@@ -23,13 +20,23 @@ mkdir -p "$data_dir"
 mkdir -p "$data_dir/logs"
 chown -R "$app:$app" "$data_dir"
 
+# 3x-ui жёстко требует эти папки
+mkdir -p /var/log/x-ui
+chown -R "$app:$app" /var/log/x-ui
+
+mkdir -p /etc/x-ui
+chown -R "$app:$app" /etc/x-ui
+
 chmod +x "$install_dir/x-ui"
 find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
 
-ynh_add_systemd_config
-ynh_add_nginx_config
+sqlite3 /etc/x-ui/x-ui.db "CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY, key TEXT, value TEXT);"
+sqlite3 /etc/x-ui/x-ui.db "INSERT OR REPLACE INTO settings (key, value) VALUES ('webPort', '$port');"
+chown "$app:$app" /etc/x-ui/x-ui.db
 
-ynh_systemctl --service=$app --action=daemon-reload
+ynh_config_add_systemd
+ynh_config_add_nginx
+
 ynh_systemctl --service=$app --action=enable
 ynh_systemctl --service=$app --action=start
 
