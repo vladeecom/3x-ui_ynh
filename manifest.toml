@@ -26,6 +26,7 @@ sso = "not_relevant"
 disk = "200M"
 ram.build = "100M"
 ram.runtime = "200M"
+apt = "sqlite3"
 
 [install.domain]
 type = "domain"
