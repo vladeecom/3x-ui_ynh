@@ -87,5 +87,5 @@ journalctl -u 3x-ui -n 100 --no-pager
 
 ## License
 
-The packaging repository is released under the GPL-3.0 License.
-The upstream application keeps its own license.
+This packaging repository is distributed under GPL-3.0.
+The upstream application 3x-ui is also distributed under GPL-3.0.
