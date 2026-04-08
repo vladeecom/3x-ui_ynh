@@ -22,6 +22,13 @@ mkdir -p "$data_dir"
 mkdir -p "$data_dir/logs"
 chown -R "$app:$app" "$data_dir"
 
+# 3x-ui жёстко требует эти папки
+mkdir -p /var/log/x-ui
+chown -R "$app:$app" /var/log/x-ui
+
+mkdir -p /etc/x-ui
+chown -R "$app:$app" /etc/x-ui
+
 chmod +x "$install_dir/x-ui"
 find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
 
