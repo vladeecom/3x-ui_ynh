@@ -30,6 +30,10 @@ chown -R "$app:$app" /etc/x-ui
 chmod +x "$install_dir/x-ui"
 find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
 
+sqlite3 /etc/x-ui/x-ui.db "CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY, key TEXT, value TEXT);"
+sqlite3 /etc/x-ui/x-ui.db "INSERT OR REPLACE INTO settings (key, value) VALUES ('webPort', '$port');"
+chown "$app:$app" /etc/x-ui/x-ui.db
+
 ynh_config_add_systemd
 ynh_config_add_nginx
 
