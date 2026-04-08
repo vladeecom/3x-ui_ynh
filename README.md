@@ -87,5 +87,5 @@ journalctl -u 3x-ui -n 100 --no-pager
 
 ## License
 
-The packaging repository is released under the MIT License.
+The packaging repository is released under the GPL-3.0 License.
 The upstream application keeps its own license.
