@@ -14,5 +14,4 @@ chown -R "$app:$app" "$install_dir"
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=daemon-reload
 ynh_systemctl --service=$app --action=restart
