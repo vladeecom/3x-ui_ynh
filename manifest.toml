@@ -39,29 +39,24 @@ type = "group"
 default = "visitors"
 
 [resources]
-    [resources.sources.amd64]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-amd64.tar.gz"
-    sha256 = "0abee91cf50154d2ffe079d972090209c59cb930f3b4c3131f435923bcb60f52"
+    [resources.sources.main]
+    amd64.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-amd64.tar.gz"
+    amd64.sha256 = "0abee91cf50154d2ffe079d972090209c59cb930f3b4c3131f435923bcb60f52"
 
-    [resources.sources.arm64]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-arm64.tar.gz"
-    sha256 = "125f3a195e5fa2b1316821a74b3a04295c9a54acd3dd30c572d3fee86314a96c"
+    arm64.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-arm64.tar.gz"
+    arm64.sha256 = "125f3a195e5fa2b1316821a74b3a04295c9a54acd3dd30c572d3fee86314a96c"
 
-    [resources.sources.armhf]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-armv7.tar.gz"
-    sha256 = "2656839923a8fd25e26458c60d7d612af8401ed5da0e26e668d74fd730d3f311"
+    armhf.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-armv7.tar.gz"
+    armhf.sha256 = "2656839923a8fd25e26458c60d7d612af8401ed5da0e26e668d74fd730d3f311"
 
-    [resources.sources.armel]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-armv5.tar.gz"
-    sha256 = "70c1dd8d9682b9f1469d56863fd824716fa1931e570d915dccf9fc6b40c33e4a"
+    armel.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-armv5.tar.gz"
+    armel.sha256 = "70c1dd8d9682b9f1469d56863fd824716fa1931e570d915dccf9fc6b40c33e4a"
 
-    [resources.sources.i386]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-386.tar.gz"
-    sha256 = "6a0cdf833ed1fe56e8a5706ba1b1ed41600dd0517095cd355077b0f608b5adc9"
+    i386.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-386.tar.gz"
+    i386.sha256 = "6a0cdf833ed1fe56e8a5706ba1b1ed41600dd0517095cd355077b0f608b5adc9"
 
-    [resources.sources.s390x]
-    url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-s390x.tar.gz"
-    sha256 = "c4d3084093ae4b34177b3b09be752689f6a007fce5001a8a4158e052c754a5f5"
+    s390x.url = "https://github.com/MHSanaei/3x-ui/releases/download/v2.8.11/x-ui-linux-s390x.tar.gz"
+    s390x.sha256 = "c4d3084093ae4b34177b3b09be752689f6a007fce5001a8a4158e052c754a5f5"
 
     [resources.system_user]
 
