@@ -23,7 +23,7 @@ architectures = ["amd64", "arm64", "armhf", "armel", "i386", "s390x"]
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
-disk = "200M"
+disk = "250M"
 ram.build = "100M"
 ram.runtime = "200M"
 
