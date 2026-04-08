@@ -1,6 +1,7 @@
 #!/bin/bash
 source /usr/share/yunohost/helpers
 source _common.sh
+get_paths_and_settings
 
 ynh_remove_nginx_config
 ynh_remove_systemd_config
