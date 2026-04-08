@@ -26,7 +26,6 @@ sso = "not_relevant"
 disk = "200M"
 ram.build = "100M"
 ram.runtime = "200M"
-apt = "sqlite3"
 
 [install.domain]
 type = "domain"
@@ -68,6 +67,9 @@ default = "visitors"
 
     [resources.ports]
     main.default = 2053
+
+    [resources.apt]
+    packages = "sqlite3"
 
     [resources.permissions]
     main.url = "/"
