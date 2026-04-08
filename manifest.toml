@@ -32,7 +32,7 @@ type = "domain"
 
 [install.path]
 type = "path"
-default = "/3x-ui"
+default = "/"
 
 [install.init_main_permission]
 type = "group"
