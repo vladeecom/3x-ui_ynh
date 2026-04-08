@@ -1,0 +1,14 @@
+#!/bin/bash
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_remove_nginx_config
+ynh_remove_systemd_config
+
+if [ -n "$install_dir" ] && [ -d "$install_dir" ]; then
+    rm -rf "$install_dir"
+fi
+
+if [ -n "$data_dir" ] && [ -d "$data_dir" ]; then
+    rm -rf "$data_dir"
+fi

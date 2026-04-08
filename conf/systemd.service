@@ -1,0 +1,16 @@
+[Unit]
+Description=3x-ui service
+After=network.target
+
+[Service]
+Type=simple
+User=__APP__
+Group=__APP__
+WorkingDirectory=__INSTALL_DIR__
+ExecStart=__INSTALL_DIR__/x-ui
+Restart=on-failure
+RestartSec=5s
+Environment=XRAY_LOCATION_ASSET=__INSTALL_DIR__/bin
+
+[Install]
+WantedBy=multi-user.target

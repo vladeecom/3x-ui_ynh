@@ -1,0 +1,36 @@
+#!/bin/bash
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+domain=$YNH_APP_ARG_DOMAIN
+path_url=$YNH_APP_ARG_PATH
+path_url="/${path_url#/}"
+port=$(ynh_find_port --port=20530)
+
+ynh_app_setting_set --app=$app --key=domain --value=$domain
+ynh_app_setting_set --app=$app --key=path --value=$path_url
+ynh_app_setting_set --app=$app --key=port --value=$port
+
+ynh_setup_source --dest_dir="$install_dir"
+
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:$app" "$install_dir"
+
+mkdir -p "$data_dir"
+mkdir -p "$data_dir/logs"
+chown -R "$app:$app" "$data_dir"
+
+chmod +x "$install_dir/x-ui"
+find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
+
+ynh_add_systemd_config
+ynh_add_nginx_config
+
+ynh_systemctl --service=$app --action=daemon-reload
+ynh_systemctl --service=$app --action=enable
+ynh_systemctl --service=$app --action=start
+
+ynh_permission_update --permission="main"

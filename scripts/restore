@@ -1,0 +1,15 @@
+#!/bin/bash
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_restore_file --origin_path="$install_dir" --dest_path="$install_dir"
+ynh_restore_file --origin_path="$data_dir" --dest_path="$data_dir"
+
+chown -R "$app:$app" "$install_dir" "$data_dir"
+
+ynh_add_systemd_config
+ynh_add_nginx_config
+
+ynh_systemctl --service=$app --action=daemon-reload
+ynh_systemctl --service=$app --action=enable
+ynh_systemctl --service=$app --action=start
