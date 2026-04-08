@@ -5,4 +5,4 @@
 
 ⚠️ **Veuillez changer votre identifiant et mot de passe immédiatement après la première connexion !**
 
-Allez dans : **Paramètres → Paramètres du panneau → Nom d'utilisateur / Mot de passe**
+Allez dans : **Panel Settings → Authentication → Admin credentials → Username / Password**
