@@ -6,11 +6,9 @@ get_paths_and_settings
 ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
-path_url="/${path_url#/}"
+path_url="/"
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
 
 ynh_setup_source --dest_dir="$install_dir"
 
