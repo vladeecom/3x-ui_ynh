@@ -28,7 +28,6 @@ find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=daemon-reload
 ynh_systemctl --service=$app --action=enable
 ynh_systemctl --service=$app --action=start
 
