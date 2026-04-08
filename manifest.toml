@@ -69,5 +69,8 @@ default = "visitors"
 
     [resources.data_dir]
 
+    [resources.ports]
+    main.default = 20530
+
     [resources.permissions]
     main.url = "/"
