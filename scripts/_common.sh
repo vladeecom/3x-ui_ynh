@@ -7,5 +7,4 @@ get_paths_and_settings() {
     data_dir=$(ynh_app_setting_get --app=$app --key=data_dir)
     domain=$(ynh_app_setting_get --app=$app --key=domain)
     path_url=$(ynh_app_setting_get --app=$app --key=path)
-    port=$(ynh_app_setting_get --app=$app --key=port)
 }
