@@ -13,3 +13,6 @@ fi
 if [ -n "$data_dir" ] && [ -d "$data_dir" ]; then
     rm -rf "$data_dir"
 fi
+
+rm -rf /var/log/x-ui
+rm -rf /etc/x-ui
