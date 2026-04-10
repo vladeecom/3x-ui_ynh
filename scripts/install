@@ -1,24 +1,19 @@
 #!/bin/bash
 source $YNH_APP_BASEDIR/scripts/_common.sh
 source /usr/share/yunohost/helpers
-get_paths_and_settings
 
-domain=$YNH_APP_ARG_DOMAIN
-path_url="/"
-
-ynh_app_setting_set --app=$app --key=domain --value=$domain
-
+ynh_script_progression "Installing sources..."
 ynh_setup_source --dest_dir="$install_dir"
 
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R "$app:$app" "$install_dir"
 
+ynh_script_progression "Creating data directories..."
 mkdir -p "$data_dir"
 mkdir -p "$data_dir/logs"
 chown -R "$app:$app" "$data_dir"
 
-# 3x-ui жёстко требует эти папки
 mkdir -p /var/log/x-ui
 chown -R "$app:$app" /var/log/x-ui
 
@@ -28,12 +23,17 @@ chown -R "$app:$app" /etc/x-ui
 chmod +x "$install_dir/x-ui"
 find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
 
+ynh_script_progression "Configuring database..."
 sqlite3 /etc/x-ui/x-ui.db "CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY, key TEXT, value TEXT);"
 sqlite3 /etc/x-ui/x-ui.db "INSERT OR REPLACE INTO settings (key, value) VALUES ('webPort', '$port');"
 chown "$app:$app" /etc/x-ui/x-ui.db
 
+ynh_script_progression "Configuring system..."
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=enable
-ynh_systemctl --service=$app --action=start
+ynh_script_progression "Starting service..."
+ynh_systemctl --service="$app" --action=enable
+ynh_systemctl --service="$app" --action=start
+
+ynh_script_progression "Installation complete!"
