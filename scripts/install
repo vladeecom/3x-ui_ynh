@@ -3,8 +3,6 @@ source /usr/share/yunohost/helpers
 source _common.sh
 get_paths_and_settings
 
-ynh_abort_if_errors
-
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 
