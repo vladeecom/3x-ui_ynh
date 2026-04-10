@@ -7,12 +7,12 @@ ynh_config_remove_nginx
 ynh_config_remove_systemd
 
 if [ -n "$install_dir" ] && [ -d "$install_dir" ]; then
-    rm -rf "$install_dir"
+    ynh_secure_remove "$install_dir"
 fi
 
 if [ -n "$data_dir" ] && [ -d "$data_dir" ]; then
-    rm -rf "$data_dir"
+    ynh_secure_remove "$data_dir"
 fi
 
-rm -rf /var/log/x-ui
-rm -rf /etc/x-ui
+ynh_secure_remove /var/log/x-ui
+ynh_secure_remove /etc/x-ui
