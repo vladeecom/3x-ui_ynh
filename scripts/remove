@@ -1,17 +1,12 @@
 #!/bin/bash
-source $YNH_APP_BASEDIR/scripts/_common.sh
+source _common.sh
 source /usr/share/yunohost/helpers
 get_paths_and_settings
 
+ynh_script_progression "Removing system configurations..."
 ynh_config_remove_nginx
 ynh_config_remove_systemd
 
-if [ -n "$install_dir" ] && [ -d "$install_dir" ]; then
-    ynh_secure_remove "$install_dir"
-fi
+ynh_safe_rm "/etc/x-ui"
 
-if [ -n "$data_dir" ] && [ -d "$data_dir" ]; then
-    ynh_secure_remove "$data_dir"
-fi
-
-ynh_secure_remove /etc/x-ui
+ynh_script_progression "Removal of $app completed"
