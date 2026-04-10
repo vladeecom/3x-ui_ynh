@@ -1,0 +1,1 @@
+3x-ui is a web-based management panel for Xray-core, supporting multiple proxy protocols including VLESS, VMess, Trojan, and Shadowsocks. It provides an easy-to-use interface for managing inbound connections, users, and traffic statistics.
