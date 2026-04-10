@@ -12,7 +12,6 @@ maintainers = ["vladeecom"]
 
 [upstream]
 license = "GPL-3.0"
-website = "https://github.com/MHSanaei/3x-ui"
 code = "https://github.com/MHSanaei/3x-ui"
 userdoc = "https://github.com/MHSanaei/3x-ui/wiki"
 admindoc = "https://github.com/MHSanaei/3x-ui/wiki/Installation"
