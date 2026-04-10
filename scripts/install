@@ -37,5 +37,3 @@ ynh_config_add_nginx
 
 ynh_systemctl --service=$app --action=enable
 ynh_systemctl --service=$app --action=start
-
-ynh_permission_update --permission="main"
