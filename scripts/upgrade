@@ -1,5 +1,5 @@
 #!/bin/bash
-source $YNH_APP_BASEDIR/scripts/_common.sh
+source _common.sh
 source /usr/share/yunohost/helpers
 get_paths_and_settings
 
