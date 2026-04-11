@@ -4,14 +4,14 @@ source /usr/share/yunohost/helpers
 
 ynh_restore "$install_dir"
 ynh_restore "$data_dir"
+ynh_restore "/etc/x-ui"
 
-chown -R "$app:$app" "$install_dir" "$data_dir"
+chown -R "$app:$app" "$install_dir"
+chown -R "$app:$app" "$data_dir"
+chown -R "$app:$app" /etc/x-ui
 
 mkdir -p /var/log/x-ui
 chown -R "$app:$app" /var/log/x-ui
-
-mkdir -p /etc/x-ui
-chown -R "$app:$app" /etc/x-ui
 
 ynh_config_add_systemd
 ynh_config_add_nginx
