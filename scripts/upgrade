@@ -1,7 +1,6 @@
 #!/bin/bash
 source _common.sh
 source /usr/share/yunohost/helpers
-get_paths_and_settings
 
 ynh_setup_source --dest_dir="$install_dir" --full_replace=1
 
