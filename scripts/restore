@@ -16,5 +16,5 @@ chown -R "$app:$app" /etc/x-ui
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=enable
-ynh_systemctl --service=$app --action=start
+ynh_systemctl --service="$app" --action=enable
+ynh_systemctl --service="$app" --action=start
