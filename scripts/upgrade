@@ -2,13 +2,17 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
+ynh_script_progression "Upgrading source files..."
 ynh_setup_source --dest_dir="$install_dir" --full_replace=1
 
 chmod +x "$install_dir/x-ui"
 find "$install_dir/bin" -type f -name "xray-linux-*" -exec chmod +x {} \; 2>/dev/null || true
 chown -R "$app:$app" "$install_dir"
 
+ynh_script_progression "Updating system configuration..."
 ynh_config_add_systemd
 ynh_config_add_nginx
 
-ynh_systemctl --service=$app --action=restart
+ynh_systemctl --service="$app" --action=restart
+
+ynh_script_progression "Upgrade of $app completed"
