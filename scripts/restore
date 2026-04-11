@@ -9,6 +9,8 @@ ynh_restore "/etc/x-ui"
 chown -R "$app:$app" "$install_dir"
 chown -R "$app:$app" "$data_dir"
 chown -R "$app:$app" /etc/x-ui
+chmod 750 /etc/x-ui
+chmod 640 /etc/x-ui/x-ui.db
 
 mkdir -p /var/log/x-ui
 chown -R "$app:$app" /var/log/x-ui
