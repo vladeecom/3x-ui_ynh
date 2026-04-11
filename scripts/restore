@@ -2,9 +2,6 @@
 source $YNH_APP_BASEDIR/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
-app=$YNH_APP_INSTANCE_NAME
-get_paths_and_settings
-
 ynh_restore "$install_dir"
 ynh_restore "$data_dir"
 
