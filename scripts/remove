@@ -1,7 +1,6 @@
 #!/bin/bash
 source _common.sh
 source /usr/share/yunohost/helpers
-get_paths_and_settings
 
 ynh_script_progression "Removing system configurations..."
 ynh_config_remove_nginx
