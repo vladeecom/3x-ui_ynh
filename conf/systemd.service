@@ -15,7 +15,9 @@ CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_NET_ADMIN CAP_NET_RAW
 AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_NET_ADMIN CAP_NET_RAW
 NoNewPrivileges=yes
 PrivateTmp=yes
-
+ProtectSystem=strict
+ReadWritePaths=/etc/x-ui
+ReadWritePaths=/var/log/x-ui
 ProtectHome=yes
 PrivateDevices=no
 ProtectKernelModules=yes
